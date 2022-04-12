@@ -1,0 +1,34 @@
+.btn-search{
+    min-width: 35px;
+    height: 30px;
+    color: #000000;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    border: #000000 solid 1px;
+    background: #ffffff;
+    box-shadow: 0 2px #000000;
+}
+.btn-search:hover {
+    box-shadow: 0 3px #000000;
+    top: 1px;
+}
+.bbtn-search:active {
+    box-shadow: 0 0 #000000;
+    top: 7px;
+}
+
+.input{
+    width: 60%;
+    height: 18px;
+    padding: 5px 10px;
+    border: #000000 solid 1px;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 2px #000000;
+    transition: all 0.3s ease;
+}

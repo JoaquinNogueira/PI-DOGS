@@ -17,12 +17,15 @@ const getApiInfo = async () => { // trae la info de la api
                 height_max: parseFloat(e.height.metric.slice(4)),
                 years_life_min: parseFloat(e.life_span.slice(0, 2).trim()),
                 years_life_max: parseFloat(e.life_span.slice(4).trim()),
-                temperament: e.temperament,
+                temperaments: [e.temperament].join().split(",").map((temp) => temp.trim()),
                 image: e.image.url,
             }
+            
 
         });
+        console.log(infoRace[0]);
         return infoRace;
+        
 
     } catch (error) {
         console.log(error);
@@ -56,7 +59,7 @@ router.get ('/', async (req, res) => {
         const name = req.query.name; // traigo el nombre de la raza
         const dogs = await getAllInfo(); // traigo la info de la base de datos y la api
             if (name) { 
-                const dog = dogs.filter(e => e.name === name); // filtro la info de la api y la base de datos
+                const dog = dogs.filter(e => e.name.toLowerCase().includes(name.toLowerCase())); // filtro la info de la api y la base de datos, paso todo a minusculas para que no haya problemas
                 dog.length > 0 ? res.json(dog) : res.status(404).json({error: 'Raza no existente'}); // si hay una raza con ese nombre, lo retorno, sino retorno un error
             } else {
                 res.json(dogs); // si no hay nombre, retorno toda la info
@@ -70,12 +73,10 @@ router.get ('/', async (req, res) => {
 
 router.get ('/:id', async (req, res) => {
     try {
-        console.log('1')
         const id = req.params.id // traigo el id de la raza
         const dogsId = await getAllInfo(); // traigo la info de la base de datos y la api
         if (id) {
             let dogId = dogsId.filter(e => e.id == id); // filtro la info de la api y la base de datos
-            console.log(dogId)
             dogId.length > 0 ? res.json(dogId) : res.status(404).json({error: 'No se encontro raza con ese id'}); // si hay una raza con ese id, lo retorno, sino retorno un error
         } else {
             res.json(dogsId); // si no hay id, retorno toda la info
@@ -87,10 +88,11 @@ router.get ('/:id', async (req, res) => {
 
 // POST /dog
 
-router.post ('/', async (req, res) => {
+router.post ('/dog', async (req, res) => {
+    console.log('3')
     const {
         name,
-        temperament,
+        temperaments,
         height_min,
         height_max,
         weight_min,
@@ -100,8 +102,9 @@ router.post ('/', async (req, res) => {
         image,
         
       } = req.body;
+      console.log(req.body)
   try {
-    if(name && height_min && height_max && weight_min && weight_max && years_life_min && years_life_max && temperament && image) {
+    if(name) {
         console.log('2')
     const createBreed = await Dog.create ({
       name,
@@ -110,20 +113,18 @@ router.post ('/', async (req, res) => {
       weight_min,
       weight_max,
       years_life_min,
+      years_life_max,
       image,
     })
-    // console.log(temperament)
-    temperament.map(async e => {
-        const temperamentDb = await Temperament.findAll({
-            where: {name: e}
-        })
-        console.log(temperamentDb)
-    createBreed.addTemperament(temperamentDb);
+    const temperamentsDB = await Temperament.findAll({
+        where: {name: temperaments} 
     })
-        res.status(200).send(createBreed)
-      } else {
+    console.log('1')
+    createBreed.addTemperaments(temperamentsDB);
+        res.status(200).send('Perro agregado')
+    } else {
         res.status(404).send({msg: 'No puede crearse la raza'})
-      }
+    }
   } catch (error) {
     res.status(500).send(error);
   }

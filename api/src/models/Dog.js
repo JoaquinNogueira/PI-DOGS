@@ -41,6 +41,12 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: 1,
     },
+    
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+
     creatInDB: { // con esto tengo referencia a los pokemons que se crearon en la base de datos
       type: DataTypes.BOOLEAN,
       allowNull: false,

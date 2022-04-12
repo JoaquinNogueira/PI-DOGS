@@ -1,0 +1,44 @@
+
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+.texto-landing {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 10%;
+    text-shadow: 0 0 10px #000;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-landing {
+    min-width: 130px;
+    height: 40px;
+    color: #000000;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background: #ffffff;
+    box-shadow: 0 5px #000000;
+  }
+  .btn-landing:hover {
+    box-shadow: 0 3px #000000;
+    top: 3px;
+  }
+  .btn-landing:active {
+    box-shadow: 0 0 #212b10;
+    top: 5px;
+  }

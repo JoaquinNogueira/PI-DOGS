@@ -1,44 +1,60 @@
 
-.landing-container {
+ .landing-container {
     display: flex;
     flex-direction: column;
-    margin-top: 10%;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: black;
+    background-image: url('https://cnnespanol.cnn.com/wp-content/uploads/2021/12/s_7F29DB66001B627FB4116B1739A280DEF61638AA9E0A9DBFC611A65816DB3720_1639609562471_04-180925_Hanspach_Hugo_Filou_MrScott_95.jpg?quality=100&strip=info&w=1024');
+    background-size: cover;
+    background-position: 0% 22%;
+    background-attachment: fixed;
+}
+.btn-container{
+  flex: auto;
+  margin-top: 5%;
+  margin-right: 75%;
 }
 
-.texto-landing {
-    color: #ffffff;
-    font-size: 40px;
-    font-weight: bold;
-    margin-top: 10%;
-    text-shadow: 0 0 10px #000;
+ .btn-landing{
+ width: 240px;
+ height: 100px;
+ font-size: 28px;
+ cursor: pointer;
+ border: none;
+ outline: none;
+ background: transparent;
+ color: white;
+ font-family: 'Times New Roman', Times, serif;
+ font-weight: 700;
+ position: relative;
+ transition: all 0.5s;
+ z-index: 1;
+} 
+ 
+ .btn-landing:before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 5px;
+ height: 100%;
+ background-color: white;
+ z-index: -1;
+ transition: all 0.5s;
+}
+ 
+ .btn-landing:hover:before {
+  width: 100%;
+}
+ 
+ .btn-landing:hover {
+  color: black;
 }
 
-.btn-container {
-    display: flex;
-    flex-direction: column;
-}
+.btn-landing:active:before {
+  background: #b9b9b9;
+ }
 
-.btn-landing {
-    min-width: 130px;
-    height: 40px;
-    color: #000000;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: none;
-    background: #ffffff;
-    box-shadow: 0 5px #000000;
-  }
-  .btn-landing:hover {
-    box-shadow: 0 3px #000000;
-    top: 3px;
-  }
-  .btn-landing:active {
-    box-shadow: 0 0 #212b10;
-    top: 5px;
-  }
+ 

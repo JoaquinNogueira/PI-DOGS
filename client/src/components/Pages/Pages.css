@@ -1,37 +1,36 @@
 .pages {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .number {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  padding: 2px;
 }
 
 .botton-page {
-    min-width: 35px;
-    height: 30px;
-    color: #000000;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    border-radius: 5px;
-    border: #000000 solid 1px;
-    background: #ffffff;
-    box-shadow: 0 2px #000000;
-
-  }
-   .botton-page:hover {
-    box-shadow: 0 3px #000000;
-    top: 1px;
-  }
-  .botton-page:active {
-    box-shadow: 0 0 #000000;
-    top: 7px;
-  } 
+  min-width: 35px;
+  height: 35px;
+  color: rgb(254, 250, 224);
+  padding: 5px 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  border-radius: 5px;
+  border: none;
+  background: rgb(96, 108, 56);
+  box-shadow: 2px 2px 3px rgb(40, 54, 24);
+}
+.botton-page:hover {
+  box-shadow: 2px 2px 1px rgb(40, 54, 24);
+  top: 1px;
+}
+.botton-page:active {
+  box-shadow: 0 0 rgb(40, 54, 24);
+  top: 5px;
+}

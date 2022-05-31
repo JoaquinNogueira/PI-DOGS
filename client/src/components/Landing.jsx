@@ -5,11 +5,10 @@ import './Landing.css';
 export default function Landing(){
     return (
         <div className="landing-container">
-            <h1 className='texto-landing'>Bienvenidos a Perrolandia</h1>
             <div className='btn-container'>
             <Link to ='/home'>
-                <button className="btn-landing">
-                    Home
+                <button className='btn-landing'>
+                    <span>Perrolandia</span>
                 </button>
             </Link>
             </div>

@@ -1,36 +1,53 @@
-import React from 'react';
-import './Card.css';
+import React from "react";
+import "./Card.css";
 
-export default function Card({name, image, temperaments, weight_min, weight_max, id}) {
-    return (
+export default function Card({
+  name,
+  image,
+  temperaments,
+  weight_min,
+  weight_max,
+  id,
+}) {
+  return (
+    <div className="card-cont">
+      <h1 className="card-tit">{name}</h1>
+      <img
+        className="card-img"
+        src={image}
+        alt={name}
+        width="220px"
+        height="200px"
+      />
+      <h5 className="tit-temp">Temperamentos</h5>
+      {console.log(temperaments)}
+      <div className="card-temp">
+        {temperaments &&
+          temperaments.map((e) => {
+            if (temperaments[0].name) {
+              return (
+                <span className="temp" key={id}>
+                  {e.name + ", "}
+                </span>
+              );
+            } else {
+              return (
+                <span className="temp" key={id}>
+                  {e + ", "}
+                </span>
+              );
+            }
+          })}
+      </div>
+      <h5 className="tit-weight">Peso (kg)</h5>
+      <div>
         <div>
-            <h1>{name}</h1>
-            <img src={image} alt={name} width='300px' height='200px'/>
-            {console.log(temperaments)};
-            <div> 
-              { temperaments && temperaments.map(e => {
-              if(temperaments[0].name) {
-                return (
-                  <h4 key={id}>{e.name}</h4>
-                )
-              } else {
-                return (
-                  <h4>{e}</h4>
-                )
-              }
-              })}
-            </div>
-            <h5>Pesos (kg)</h5>
+          <span className="weight">Peso mínimo: {weight_min}</span>
+        </div>
         <div>
-          <div>
-            <p>Peso mínimo</p>
-            <span>{weight_min}</span>
-          </div>
-          <div>
-            <p>Peso máximo</p>
-            <span>{weight_max}</span>
-          </div>
+          <span className="weight">Peso máximo: {weight_max}</span>
         </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 }

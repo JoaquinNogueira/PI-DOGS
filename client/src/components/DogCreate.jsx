@@ -102,7 +102,7 @@ export default function DogCreate() {
   return (
     <div className="create">
       <Link to="/Home">
-        <button className="btn-home">Ir al Home</button>{" "}
+        <button className="btn-home">Ir al Home</button>
       </Link>
       <div className="bodyCreate">
         <div className="form">

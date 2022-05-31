@@ -70,6 +70,9 @@
 }
 /* ----------------------------------------  */
 
+.filtros-order {
+  margin-left: 5%;
+}
 .order {
   position: relative;
   background-color: rgb(254, 250, 224);
